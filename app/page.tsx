@@ -297,19 +297,19 @@ export default function HomePage() {
             <nav className="hidden md:flex items-center space-x-6" role="navigation" id="navigation">
               <a
                 href="#solution"
-                className="text-sm font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
+                className="text-base font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
               >
                 Solution
               </a>
               <a
                 href="#wallet-simulator"
-                className="text-sm font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
+                className="text-base font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
               >
                 Simulator
               </a>
               <a
                 href="#accessibility"
-                className="text-sm font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
+                className="text-base font-medium text-white hover:text-[#F1C47B] transition-colors focus:outline-none focus:ring-3 focus:ring-[#F1C47B] focus:ring-offset-2 focus:ring-offset-[#094985] rounded px-2 py-1"
               >
                 Accessibility
               </a>
