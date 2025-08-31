@@ -439,8 +439,8 @@ export function WalletSimulator({ isOpen, onClose }: WalletSimulatorProps) {
       <header className="flex-shrink-0 w-full border-b bg-background/95 backdrop-blur">
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <button onClick={onClose} className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">W</span>
+            <div className="w-32 h-auto">
+              <img src="/wave_white_trans.png" alt="W.A.V.E Logo" />
             </div>
             <span className="text-xl font-bold text-foreground">W.A.V.E</span>
           </button>
