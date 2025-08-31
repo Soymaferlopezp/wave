@@ -290,7 +290,6 @@ export default function HomePage() {
           <div className="container flex h-16 items-center justify-between px-4 md:px-6">
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center">
-                <span className="text-primary font-bold text-sm">W</span>
               </div>
               <h1 className="text-xl font-bold text-white">W.A.V.E</h1>
             </div>
@@ -611,7 +610,7 @@ export default function HomePage() {
                         Learn by Doing - Safely
                       </h2>
                       <TTSParagraph id="simulator-intro" className="text-xl text-muted-foreground text-balance">
-                        Our wallet simulator lets you practice with fake funds before risking real money
+                        Our wallet simulator allows you to practice with test tokens before risking real money.
                       </TTSParagraph>
                     </div>
 
@@ -812,7 +811,7 @@ export default function HomePage() {
                 <div className="grid md:grid-cols-3 gap-8">
                   <Card className="text-center p-8 shadow-lg">
                     <CardContent className="pt-6">
-                      <div className="text-5xl md:text-6xl font-bold text-primary mb-4">1.3B+</div>
+                      <div className="text-5xl md:text-6xl font-bold text-primary mb-4">15%</div>
                       <p className="text-lg text-muted-foreground">People worldwide live with disabilities</p>
                     </CardContent>
                   </Card>
@@ -880,7 +879,6 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="flex items-center space-x-2">
                       <div className="h-8 w-8 rounded-lg bg-primary-foreground flex items-center justify-center">
-                        <span className="text-primary font-bold text-sm">W</span>
                       </div>
                       <div>
                         <h3 className="font-bold text-white">W.A.V.E</h3>
@@ -932,7 +930,7 @@ export default function HomePage() {
                     <h4 className="font-semibold text-white">Contact</h4>
                     <div className="space-y-2 text-sm text-white/80">
                       <p>Built for Aleph Hackathon 2025</p>
-                      <a href="#" className="flex items-center space-x-2 hover:text-white transition-colors">
+                      <a href="https://github.com/Soymaferlopezp/wave" className="flex items-center space-x-2 hover:text-white transition-colors">
                         <Github className="h-4 w-4" />
                         <span>GitHub Repository</span>
                       </a>
