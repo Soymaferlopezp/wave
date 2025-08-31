@@ -291,9 +291,6 @@ export default function HomePage() {
             <div className="flex items-center space-x-2">
               <h1 className="text-xl font-bold text-white">W.A.V.E</h1>
             </div>
-            <div className="w-32 h-auto">
-              <img src="/wave_white_trans.png" alt="W.A.V.E Logo" />
-            </div>
             <nav className="hidden md:flex items-center space-x-6" role="navigation" id="navigation">
               <a
                 href="#solution"
