@@ -1,0 +1,1264 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Removed problematic Google Fonts import - now using Next.js font optimization */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match W.A.V.E brand colors */
+  --background: oklch(0.98 0 0); /* #FAFAFA */
+  --foreground: oklch(0.11 0 0); /* #1C1C1C */
+  --card: oklch(1 0 0); /* #FFFFFF */
+  --card-foreground: oklch(0.11 0 0); /* #1C1C1C */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.11 0 0);
+  --primary: oklch(0.31 0.08 240); /* #094985 navy blue */
+  --primary-foreground: oklch(0.98 0 0); /* #FAFAFA */
+  --secondary: oklch(0.91 0 0); /* Light gray for secondary elements */
+  --secondary-foreground: oklch(0.11 0 0);
+  --muted: oklch(0.91 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.78 0.08 85); /* #F1C47B warm gold */
+  --accent-foreground: oklch(0.11 0 0); /* #1C1C1C */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0 0); /* #E5E5E5 */
+  --input: oklch(1 0 0);
+  --ring: oklch(0.31 0.08 240 / 0.5); /* Navy blue with opacity */
+  --chart-1: oklch(0.78 0.08 85); /* Warm gold */
+  --chart-2: oklch(0.31 0.08 240); /* Navy blue */
+  --chart-3: oklch(0.91 0 0);
+  --chart-4: oklch(0.45 0 0);
+  --chart-5: oklch(0.577 0.245 27.325);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.11 0 0);
+  --sidebar-primary: oklch(0.31 0.08 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.78 0.08 85);
+  --sidebar-accent-foreground: oklch(0.11 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.31 0.08 240 / 0.5);
+
+  /* Updated dyslexia font family to use Next.js font variable */
+  --dyslexia-font-family: var(--font-atkinson), "OpenDyslexic", sans-serif;
+  --dyslexia-font-size-base: 20px;
+  --dyslexia-line-height: 1.7;
+  --dyslexia-letter-spacing: 0.04em;
+  --dyslexia-bg-main: #fafafa;
+  --dyslexia-text-main: #1c1c1c;
+  --dyslexia-card-bg: #ffffff;
+  --dyslexia-card-shadow: rgba(9, 73, 133, 0.1);
+  --dyslexia-line-highlight: rgba(241, 196, 123, 0.25);
+
+  /* Sepia theme variables */
+  --dyslexia-sepia-bg: #f5f5dc;
+  --dyslexia-sepia-text: #2f2f2f;
+  --dyslexia-sepia-card: #fefef0;
+  --dyslexia-sepia-shadow: rgba(47, 47, 47, 0.1);
+
+  /* Added autism profile CSS variables for soft pastel theme */
+  --autism-primary: #87ceeb; /* soft blue */
+  --autism-accent: #e6e6fa; /* soft lavender */
+  --autism-bg: #f0fff0; /* light mint */
+  --autism-text: #2f4f4f; /* gentle dark gray */
+  --autism-card: #fefefe; /* soft white */
+  --autism-border: #e6e6fa; /* soft lavender border */
+  --autism-shadow: rgba(135, 206, 235, 0.1); /* soft blue shadow */
+
+  /* Added ADHD preset CSS variables for focused learning */
+  --adhd-primary: #094985; /* W.A.V.E navy blue */
+  --adhd-accent: #f1c47b; /* W.A.V.E gold */
+  --adhd-bg: #fafafa; /* Clean white background */
+  --adhd-text: #1c1c1c; /* High contrast text */
+  --adhd-card: #ffffff; /* Pure white cards */
+  --adhd-border: #e5e5e5; /* Subtle borders */
+  --adhd-focus: #094985; /* Focus outline color */
+  --adhd-success: #10b981; /* Success/completion color */
+  --adhd-warning: #f59e0b; /* Warning/attention color */
+  --adhd-muted: #6b7280; /* Muted text */
+  --header-h: 64px; /* Default header height */
+}
+
+.dark {
+  --background: oklch(0.11 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.78 0.08 85); /* Gold becomes primary in dark mode */
+  --primary-foreground: oklch(0.11 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.31 0.08 240); /* Navy becomes accent in dark mode */
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.78 0.08 85 / 0.5);
+  --chart-1: oklch(0.78 0.08 85);
+  --chart-2: oklch(0.31 0.08 240);
+  --chart-3: oklch(0.65 0 0);
+  --chart-4: oklch(0.45 0 0);
+  --chart-5: oklch(0.577 0.245 27.325);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.78 0.08 85);
+  --sidebar-primary-foreground: oklch(0.11 0 0);
+  --sidebar-accent: oklch(0.31 0.08 240);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.78 0.08 85 / 0.5);
+
+  /* Dark mode dyslexia variables */
+  --dyslexia-bg-main: #1a1a1a;
+  --dyslexia-text-main: #fafafa;
+  --dyslexia-card-bg: #2a2a2a;
+  --dyslexia-card-shadow: rgba(241, 196, 123, 0.1);
+  --dyslexia-line-highlight: rgba(241, 196, 123, 0.15);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* Added Atkinson font variable to theme */
+  --font-atkinson: var(--font-atkinson);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Sticky header with proper z-index */
+  .sticky-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important; /* Below modals (>=1000) but above content */
+    width: 100% !important;
+    background-color: #094985 !important; /* Solid primary blue background */
+    pointer-events: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Body padding to prevent header overlap */
+  body {
+    @apply bg-background text-foreground;
+    margin: 0 !important;
+    padding-top: var(--header-h) !important; /* Add padding equal to header height */
+    background-color: var(--bg-primary, var(--background));
+    color: var(--text-primary, var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Scroll margin for proper anchor link behavior */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  section,
+  .card,
+  .hero {
+    scroll-margin-top: calc(var(--header-h) + 12px) !important;
+  }
+
+  /* Added screen reader only class for accessibility descriptions */
+  .sr-only {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* Enhanced dyslexia-specific styles with sepia theme and better typography */
+  [data-profile="dyslexia"] {
+    font-family: var(--dyslexia-font-family) !important;
+    background-color: var(--bg-primary, var(--dyslexia-bg-main)) !important;
+    color: var(--text-primary, var(--dyslexia-text-main)) !important;
+  }
+
+  [data-profile="dyslexia"][data-sepia="true"] {
+    background-color: var(--dyslexia-sepia-bg) !important;
+    color: var(--dyslexia-sepia-text) !important;
+  }
+
+  /* Added autism profile styles with soft pastels and reduced motion */
+  [data-profile="autism"] {
+    background-color: var(--autism-bg) !important;
+    color: var(--autism-text) !important;
+  }
+
+  /* Apply reduced motion when autism profile is active */
+  [data-profile="autism"] * {
+    animation-duration: 0ms !important;
+    transition-duration: 200ms !important;
+  }
+
+  /* Autism profile button and card styling */
+  [data-profile="autism"] .btn-primary,
+  [data-profile="autism"] button[class*="bg-primary"] {
+    background-color: var(--autism-primary) !important;
+    color: var(--autism-text) !important;
+    border-color: var(--autism-primary) !important;
+  }
+
+  [data-profile="autism"] .btn-primary:hover,
+  [data-profile="autism"] button[class*="bg-primary"]:hover {
+    background-color: #7bb8d6 !important;
+  }
+
+  [data-profile="autism"] .card,
+  [data-profile="autism"] [class*="bg-white"],
+  [data-profile="autism"] [class*="bg-card"] {
+    background-color: var(--autism-card) !important;
+    color: var(--autism-text) !important;
+    border: 1px solid var(--autism-border) !important;
+    box-shadow: 0 2px 8px var(--autism-shadow) !important;
+    transition: background-color 0.3s ease !important;
+  }
+
+  /* Autism profile navigation and header styling */
+  [data-profile="autism"] header,
+  [data-profile="autism"] nav {
+    background-color: var(--autism-card) !important;
+    border-bottom: 1px solid var(--autism-border) !important;
+  }
+
+  /* Autism profile text styling with clear hierarchy */
+  [data-profile="autism"] h1,
+  [data-profile="autism"] h2,
+  [data-profile="autism"] h3,
+  [data-profile="autism"] h4,
+  [data-profile="autism"] h5,
+  [data-profile="autism"] h6 {
+    color: var(--autism-text) !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  [data-profile="autism"] p {
+    color: var(--autism-text) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Autism profile link styling */
+  [data-profile="autism"] a {
+    color: var(--autism-primary) !important;
+    text-decoration: underline !important;
+  }
+
+  [data-profile="autism"] a:hover {
+    color: #7bb8d6 !important;
+  }
+
+  /* Predictable layout - fixed positioning for navigation */
+  [data-profile="autism"] header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+  }
+
+  /* Clear visual boundaries for autism profile */
+  [data-profile="autism"] section {
+    border: 2px solid var(--autism-border) !important;
+    border-radius: 12px !important;
+    margin-bottom: 3rem !important;
+    padding: 2.5rem !important;
+    background-color: var(--autism-card) !important;
+    box-shadow: 0 4px 12px var(--autism-shadow) !important;
+    transition: background-color 0.3s ease !important;
+  }
+
+  [data-profile="autism"] .icon-with-label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  [data-profile="autism"] .icon-label {
+    font-size: 0.75rem !important;
+    color: var(--autism-text) !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Ensure icons are always visible in autism mode with high contrast */
+  [data-profile="autism"] svg {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Enhanced autism profile icon styling with proper visibility and pictogram approach */
+  [data-profile="autism"] .accessibility-card .flex.flex-col.items-center,
+  [data-profile="autism"] .card .flex.flex-col.items-center {
+    gap: 0.75rem !important;
+  }
+
+  /* Fixed icon visibility in autism profile with dark colors and high contrast */
+  [data-profile="autism"] .accessibility-card svg,
+  [data-profile="autism"] .card svg,
+  [data-profile="autism"] svg {
+    color: #2f4f4f !important; /* Dark gray for high contrast */
+    fill: #2f4f4f !important;
+    stroke: #2f4f4f !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    filter: drop-shadow(0 2px 4px rgba(47, 79, 79, 0.2)) !important;
+  }
+
+  /* Enhanced pictogram labels with larger text */
+  [data-profile="autism"] .accessibility-card span,
+  [data-profile="autism"] .card .font-medium {
+    color: var(--autism-text) !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    font-size: 1rem !important; /* Larger text for pictogram labels */
+  }
+
+  /* Override any potential white/invisible icon styling */
+  [data-profile="autism"] .lucide,
+  [data-profile="autism"] .lucide-brain,
+  [data-profile="autism"] .lucide-eye,
+  [data-profile="autism"] .lucide-target,
+  [data-profile="autism"] .lucide-grid-3x3 {
+    color: #4a90e2 !important;
+    fill: #4a90e2 !important;
+    stroke: #4a90e2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Remove hover effects and animations for autism profile */
+  [data-profile="autism"] *:hover {
+    transform: none !important;
+    scale: 1 !important;
+  }
+
+  /* Enhanced focus indicators for autism profile */
+  [data-profile="autism"] *:focus {
+    outline: 3px solid var(--autism-primary) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px rgba(135, 206, 235, 0.2) !important;
+  }
+
+  /* Footer text color fix for autism profile */
+  [data-profile="autism"] footer {
+    background-color: var(--autism-primary) !important;
+    color: #ffffff !important;
+  }
+
+  [data-profile="autism"] footer h3,
+  [data-profile="autism"] footer h4,
+  [data-profile="autism"] footer p,
+  [data-profile="autism"] footer span,
+  [data-profile="autism"] footer a {
+    color: #ffffff !important;
+  }
+
+  [data-profile="autism"] footer a:hover {
+    color: #e6e6fa !important;
+  }
+
+  /* Gentle hover states with subtle background changes */
+  [data-profile="autism"] button:hover,
+  [data-profile="autism"] .card:hover,
+  [data-profile="autism"] a:hover {
+    background-color: rgba(230, 230, 250, 0.1) !important;
+    transition: background-color 200ms ease !important;
+  }
+
+  /* Sensory considerations - reduced image brightness and softer shadows */
+  [data-profile="autism"] img {
+    filter: brightness(0.9) saturate(0.8) !important;
+    transition: filter 200ms ease !important;
+  }
+
+  [data-profile="autism"] .card,
+  [data-profile="autism"] [class*="shadow"] {
+    box-shadow: 0 2px 8px rgba(135, 206, 235, 0.08) !important;
+  }
+
+  /* Consistent spacing and padding throughout */
+  [data-profile="autism"] .container {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  [data-profile="autism"] .space-y-4 > * + * {
+    margin-top: 1.5rem !important;
+  }
+
+  [data-profile="autism"] .space-y-8 > * + * {
+    margin-top: 2.5rem !important;
+  }
+
+  /* Breadcrumb-style navigation indicators */
+  [data-profile="autism"] nav::after {
+    content: "Current: " attr(data-current-section);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 0.75rem;
+    color: var(--autism-text);
+    background: var(--autism-card);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--autism-border);
+  }
+
+  /* Loading state styling for predictable interactions */
+  [data-profile="autism"] .loading {
+    background: linear-gradient(90deg, var(--autism-card) 25%, var(--autism-accent) 50%, var(--autism-card) 75%);
+    background-size: 200% 100%;
+    animation: gentle-loading 2s ease-in-out infinite;
+  }
+
+  @keyframes gentle-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Form validation styling - gentle, not alarming */
+  [data-profile="autism"] .error-message {
+    color: #8b4513 !important; /* Soft brown instead of red */
+    background-color: #fff8dc !important; /* Cornsilk background */
+    border: 1px solid #deb887 !important; /* Burlywood border */
+    padding: 0.5rem !important;
+    border-radius: 6px !important;
+    font-size: 0.875rem !important;
+  }
+
+  [data-profile="autism"] .success-message {
+    color: #2e8b57 !important; /* Sea green */
+    background-color: #f0fff0 !important; /* Honeydew background */
+    border: 1px solid #90ee90 !important; /* Light green border */
+    padding: 0.5rem !important;
+    border-radius: 6px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Updated dyslexia paragraph styles to use dynamic font size from CSS variable */
+  [data-profile="dyslexia"] .dyslexia-paragraph,
+  [data-profile="dyslexia"] .tts-paragraph,
+  [data-profile="dyslexia"] p:not(.exclude-dyslexia),
+  [data-profile="dyslexia"] .readable-content {
+    font-family: var(--dyslexia-font-family) !important;
+    font-size: var(--dyslexia-font-size-base) !important;
+    line-height: var(--dyslexia-line-height) !important;
+    letter-spacing: var(--dyslexia-letter-spacing) !important;
+    max-width: 65ch;
+    margin-bottom: 1.5rem;
+    transition: font-size 0.2s ease !important;
+  }
+
+  /* Apply font size to all readable text content areas */
+  [data-profile="dyslexia"] .hero-content p,
+  [data-profile="dyslexia"] .problem-content p,
+  [data-profile="dyslexia"] .solution-content p,
+  [data-profile="dyslexia"] .feature-description,
+  [data-profile="dyslexia"] .accessibility-description,
+  [data-profile="dyslexia"] .main-content p {
+    font-size: var(--dyslexia-font-size-base) !important;
+    letter-spacing: var(--dyslexia-letter-spacing) !important;
+    transition: font-size 0.2s ease !important;
+  }
+
+  /* Updated line highlight styles to match specifications with proper contrast */
+  [data-profile="dyslexia"] .reading-highlight {
+    background: rgba(241, 196, 123, 0.2) !important;
+    padding: 8px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    border-left: 3px solid #f1c47b !important;
+  }
+
+  /* Added currently-reading class for active TTS highlighting */
+  [data-profile="dyslexia"] .currently-reading {
+    background: rgba(241, 196, 123, 0.2) !important;
+    border-left: 3px solid #f1c47b !important;
+    padding-left: 12px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  [data-profile="dyslexia"] .line-highlight {
+    background-color: var(--dyslexia-line-highlight);
+    border-radius: 4px;
+    padding: 2px 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Enhanced focus indicators for accessibility */
+  [data-profile="dyslexia"] *:focus {
+    outline: 3px solid #094985 !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Improved text spacing for dyslexia */
+  [data-profile="dyslexia"] h1,
+  [data-profile="dyslexia"] h2,
+  [data-profile="dyslexia"] h3,
+  [data-profile="dyslexia"] h4,
+  [data-profile="dyslexia"] h5,
+  [data-profile="dyslexia"] h6 {
+    font-family: var(--dyslexia-font-family) !important;
+    letter-spacing: var(--dyslexia-letter-spacing) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  [data-profile="dyslexia"] p {
+    margin-bottom: 1.25rem !important;
+    max-width: 65ch !important;
+    /* Ensure all paragraphs use dynamic font size */
+    font-size: var(--dyslexia-font-size-base) !important;
+    letter-spacing: var(--dyslexia-letter-spacing) !important;
+    transition: font-size 0.2s ease !important;
+  }
+
+  /* Fixed card styling to remain white even in sepia mode for accessibility section */
+  [data-profile="dyslexia"] .accessibility-card,
+  [data-profile="dyslexia"] .card,
+  [data-profile="dyslexia"] [class*="card"],
+  [data-profile="dyslexia"] [class*="bg-white"],
+  [data-profile="dyslexia"] [class*="bg-card"] {
+    background: #ffffff !important;
+    color: #2f2f2f !important;
+    box-shadow: 0 4px 12px rgba(9, 73, 133, 0.1) !important;
+    transition: background-color 0.3s ease !important;
+  }
+
+  /* Ensure cards stay white even in sepia mode */
+  [data-profile="dyslexia"][data-sepia="true"] .accessibility-card,
+  [data-profile="dyslexia"][data-sepia="true"] .card,
+  [data-profile="dyslexia"][data-sepia="true"] [class*="card"],
+  [data-profile="dyslexia"][data-sepia="true"] [class*="bg-white"],
+  [data-profile="dyslexia"][data-sepia="true"] [class*="bg-card"] {
+    background: #ffffff !important;
+    color: #2f2f2f !important;
+    box-shadow: 0 4px 12px rgba(47, 47, 47, 0.1) !important;
+  }
+
+  /* Sepia theme should only affect main background, not UI components */
+  [data-sepia="true"] {
+    --bg-primary: #f5f5dc;
+    --text-primary: #2f2f2f;
+    --card-bg: #ffffff;
+  }
+
+  /* Apply sepia only to body background, not all elements */
+  [data-sepia="true"] body {
+    background-color: #f5f5dc !important;
+    color: #2f2f2f !important;
+  }
+
+  /* Button styling for dyslexia mode */
+  [data-profile="dyslexia"] button {
+    border: 2px solid transparent !important;
+    font-weight: 600 !important;
+  }
+
+  [data-profile="dyslexia"] button:hover {
+    border-color: #094985 !important;
+  }
+
+  /* Comprehensive ADHD preset styles for focused learning */
+  [data-preset="adhd"] {
+    background-color: var(--adhd-bg) !important;
+    color: var(--adhd-text) !important;
+  }
+
+  /* ADHD: Strong visual hierarchy with clear headings */
+  [data-preset="adhd"] h1 {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: var(--adhd-text) !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  [data-preset="adhd"] h2 {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: var(--adhd-text) !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.3 !important;
+  }
+
+  [data-preset="adhd"] h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: var(--adhd-text) !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ADHD: Increased white space by 16% */
+  [data-preset="adhd"] section {
+    padding: 2.9rem !important; /* 16% increase from 2.5rem */
+    margin-bottom: 3.48rem !important; /* 16% increase from 3rem */
+  }
+
+  [data-preset="adhd"] .container {
+    padding-left: 1.74rem !important; /* 16% increase from 1.5rem */
+    padding-right: 1.74rem !important;
+  }
+
+  [data-preset="adhd"] .space-y-8 > * + * {
+    margin-top: 2.32rem !important; /* 16% increase from 2rem */
+  }
+
+  [data-preset="adhd"] .space-y-6 > * + * {
+    margin-top: 1.74rem !important; /* 16% increase from 1.5rem */
+  }
+
+  [data-preset="adhd"] .space-y-4 > * + * {
+    margin-top: 1.16rem !important; /* 16% increase from 1rem */
+  }
+
+  /* ADHD: One dominant primary button per view */
+  [data-preset="adhd"] .btn-primary,
+  [data-preset="adhd"] button[class*="bg-primary"]:not(.btn-secondary) {
+    background-color: var(--adhd-primary) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 1.125rem !important;
+    padding: 0.875rem 2rem !important;
+    border-radius: 0.5rem !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(9, 73, 133, 0.2) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  [data-preset="adhd"] .btn-primary:hover,
+  [data-preset="adhd"] button[class*="bg-primary"]:not(.btn-secondary):hover {
+    background-color: #073a6b !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(9, 73, 133, 0.3) !important;
+  }
+
+  /* ADHD: Secondary actions as text links */
+  [data-preset="adhd"] .btn-secondary,
+  [data-preset="adhd"] button[variant="outline"],
+  [data-preset="adhd"] a.btn-secondary {
+    background: transparent !important;
+    color: var(--adhd-primary) !important;
+    border: none !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    box-shadow: none !important;
+  }
+
+  [data-preset="adhd"] .btn-secondary:hover,
+  [data-preset="adhd"] button[variant="outline"]:hover,
+  [data-preset="adhd"] a.btn-secondary:hover {
+    color: #073a6b !important;
+    background: rgba(9, 73, 133, 0.05) !important;
+  }
+
+  /* ADHD: High-contrast focus outlines (3px minimum) */
+  [data-preset="adhd"] *:focus {
+    outline: 3px solid var(--adhd-focus) !important;
+    outline-offset: 2px !important;
+    border-radius: 0.25rem !important;
+  }
+
+  /* ADHD: Minimum target size 44x44px */
+  button,
+  a,
+  input[type="checkbox"],
+  input[type="radio"],
+  .clickable {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* ADHD: Respect prefers-reduced-motion */
+  [data-preset="adhd"] * {
+    animation-duration: 0ms !important;
+    transition-duration: 200ms !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-preset="adhd"] * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ADHD: Hide non-essential UI when toggle is active */
+  [data-preset="adhd"].hide-non-essential .decorative,
+  [data-preset="adhd"].hide-non-essential .badge:not(.progress-badge),
+  [data-preset="adhd"].hide-non-essential .background-image,
+  [data-preset="adhd"].hide-non-essential .extra-icon,
+  [data-preset="adhd"].hide-non-essential .promo,
+  [data-preset="adhd"].hide-non-essential .confetti {
+    display: none !important;
+  }
+
+  /* ADHD: Progress indicators and step styling */
+  [data-preset="adhd"] .progress-bar {
+    height: 8px !important;
+    background-color: #e5e7eb !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+  }
+
+  [data-preset="adhd"] .progress-fill {
+    background-color: var(--adhd-primary) !important;
+    height: 100% !important;
+    transition: width 0.3s ease !important;
+  }
+
+  [data-preset="adhd"] .step-indicator {
+    background-color: var(--adhd-card) !important;
+    border: 2px solid var(--adhd-border) !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  [data-preset="adhd"] .step-number {
+    background-color: var(--adhd-primary) !important;
+    color: white !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+  }
+
+  /* ADHD: Key points summary styling */
+  [data-preset="adhd"] .key-points {
+    background-color: #f0f9ff !important;
+    border: 2px solid var(--adhd-primary) !important;
+    border-radius: 0.5rem !important;
+    padding: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  [data-preset="adhd"] .key-points h3 {
+    color: var(--adhd-primary) !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  [data-preset="adhd"] .key-points ul {
+    list-style: none !important;
+    padding: 0 !important;
+  }
+
+  [data-preset="adhd"] .key-points li {
+    display: flex !important;
+    align-items: flex-start !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  [data-preset="adhd"] .key-points li::before {
+    content: "✓" !important;
+    color: var(--adhd-success) !important;
+    font-weight: bold !important;
+    margin-right: 0.75rem !important;
+    margin-top: 0.125rem !important;
+  }
+
+  /* ADHD: Checklist styling */
+  [data-preset="adhd"] .checklist {
+    background-color: var(--adhd-card) !important;
+    border: 2px solid var(--adhd-border) !important;
+    border-radius: 0.5rem !important;
+    padding: 1.5rem !important;
+  }
+
+  [data-preset="adhd"] .checklist-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.75rem !important;
+    border-radius: 0.25rem !important;
+    margin-bottom: 0.5rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+  }
+
+  [data-preset="adhd"] .checklist-item:hover {
+    background-color: #f9fafb !important;
+  }
+
+  [data-preset="adhd"] .checklist-item input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 0.75rem !important;
+    accent-color: var(--adhd-primary) !important;
+  }
+
+  [data-preset="adhd"] .checklist-item.completed {
+    opacity: 0.6 !important;
+  }
+
+  [data-preset="adhd"] .checklist-item.completed span {
+    text-decoration: line-through !important;
+  }
+
+  /* ADHD: Status announcements */
+  [data-preset="adhd"] .status-announcement {
+    position: fixed !important;
+    bottom: 1rem !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    background-color: var(--adhd-primary) !important;
+    color: white !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 4px 12px rgba(9, 73, 133, 0.3) !important;
+    z-index: 1000 !important;
+  }
+
+  /* ADHD: Skip to main content link */
+  [data-preset="adhd"] .skip-link {
+    position: absolute !important;
+    top: -40px !important;
+    left: 6px !important;
+    background: var(--adhd-primary) !important;
+    color: white !important;
+    padding: 8px !important;
+    text-decoration: none !important;
+    border-radius: 0.25rem !important;
+    z-index: 1000 !important;
+  }
+
+  [data-preset="adhd"] .skip-link:focus {
+    top: 6px !important;
+  }
+
+  /* ADHD: Stable layout - prevent content shifts */
+  [data-preset="adhd"] .layout-stable {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  [data-preset="adhd"] .content-area {
+    flex: 1 !important;
+    padding: 2rem !important;
+  }
+
+  /* ADHD: Gentle reminders styling */
+  [data-preset="adhd"] .reminder {
+    background-color: #fef3c7 !important;
+    border: 1px solid var(--adhd-warning) !important;
+    color: #92400e !important;
+    padding: 1rem !important;
+    border-radius: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    font-weight: 500 !important;
+  }
+
+  [data-preset="adhd"] .reminder .dismiss-btn {
+    background: none !important;
+    border: none !important;
+    color: #92400e !important;
+    font-size: 1.25rem !important;
+    cursor: pointer !important;
+    padding: 0.25rem !important;
+    margin-left: 0.5rem !important;
+  }
+
+  /* Modal overlay with proper backdrop and z-index */
+  .modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background-color: rgba(28, 28, 28, 0.7) !important;
+    backdrop-filter: blur(3px) !important;
+    z-index: 1000 !important; /* Higher than header z-index */
+  }
+
+  /* Modal panel with solid white background and proper contrast */
+  .modal-panel {
+    background-color: #ffffff !important;
+    color: #0b1320 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(9, 73, 133, 0.3) !important;
+    z-index: 1001 !important; /* Higher than modal overlay */
+  }
+
+  /* Modal text contrast fixes */
+  .modal-panel h1,
+  .modal-panel h2,
+  .modal-panel h3,
+  .modal-panel p,
+  .modal-panel span,
+  .modal-panel label {
+    color: #0b1320 !important;
+  }
+
+  /* Modal button styling with proper contrast */
+  .modal-panel .btn-primary {
+    background-color: #094985 !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  .modal-panel .btn-primary:hover {
+    background-color: #073a6b !important;
+  }
+
+  .modal-panel .btn-secondary {
+    background-color: transparent !important;
+    color: #0b1320 !important;
+    border: 2px solid #094985 !important;
+  }
+
+  /* Modal card selection styling */
+  .modal-panel .accessibility-card {
+    background-color: #094985 !important;
+    color: #ffffff !important;
+    border: 2px solid transparent !important;
+  }
+
+  .modal-panel .accessibility-card.selected {
+    border: 3px solid #f1c47b !important;
+    outline: 2px solid #094985 !important;
+    outline-offset: 2px !important;
+  }
+
+  .modal-panel .accessibility-card:not(.selected) {
+    background-color: #ffffff !important;
+    color: #0b1320 !important;
+    border: 2px solid #094985 !important;
+  }
+
+  /* Accessibility section with dark background and white text */
+  #accessibility {
+    background-color: #094985 !important;
+    color: #ffffff !important;
+  }
+
+  #accessibility h2,
+  #accessibility h3,
+  #accessibility p {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+  }
+
+  /* White cards inside accessibility section with dark text */
+  #accessibility .card,
+  #accessibility [class*="bg-primary-foreground"] {
+    background-color: #ffffff !important;
+    color: #0b1320 !important;
+    border: 1px solid #d7dee8 !important;
+    padding: 1rem !important;
+  }
+
+  #accessibility .card h3,
+  #accessibility .card p,
+  #accessibility .card span {
+    color: #0b1320 !important;
+  }
+
+  /* Checklist items with proper contrast */
+  #accessibility .checklist-item {
+    background-color: #ffffff !important;
+    color: #0b1320 !important;
+    border: 1px solid #d7dee8 !important;
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  #accessibility .checklist-item span {
+    color: #0b1320 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Force removal of any strikethrough styles globally */
+  .line-through,
+  .opacity-50,
+  [style*="text-decoration: line-through"],
+  [style*="opacity: 0.5"] {
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Floating accessibility button positioning */
+  .accessibility-floating-button {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    z-index: 40 !important;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0ms !important;
+      transition-duration: 100ms !important;
+    }
+
+    .modal-panel {
+      animation: none !important;
+    }
+  }
+
+  /* Header height calculation script */
+  @supports (height: 100dvh) {
+    :root {
+      --header-h: 64px;
+    }
+  }
+
+  /* Hero CTA buttons with higher z-index to ensure clickability */
+  .hero-cta {
+    position: relative !important;
+    z-index: 200 !important; /* Higher than header but lower than modals */
+  }
+
+  /* Header navigation links with proper focus styling */
+  .sticky-header nav a {
+    color: #fafafa !important; /* White text */
+    transition: color 0.2s ease !important;
+  }
+
+  .sticky-header nav a:hover {
+    color: #f1c47b !important; /* Gold hover */
+  }
+
+  .sticky-header nav a:focus-visible {
+    outline: 3px solid #f1c47b !important;
+    outline-offset: 2px !important;
+    border-radius: 4px !important;
+  }
+
+  /* Connect Wallet button styling in header */
+  .sticky-header .btn-connect-wallet {
+    background-color: #f1c47b !important; /* Gold background */
+    color: #1c1c1c !important; /* Dark text */
+    min-height: 44px !important;
+    min-width: 44px !important;
+    border: none !important;
+  }
+
+  .sticky-header .btn-connect-wallet:hover {
+    background-color: #e6b366 !important; /* Darker gold on hover */
+  }
+
+  .sticky-header .btn-connect-wallet:focus-visible {
+    outline: 3px solid #f1c47b !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Conditional card styling for Built for Accessibility section based on data-preset */
+  /* Base/default profile: Blue cards with white text */
+  [data-preset="base"] #accessibility .card,
+  [data-preset=""] #accessibility .card,
+  :not([data-preset]) #accessibility .card,
+  html:not([data-preset]) #accessibility .card {
+    background-color: #094985 !important;
+    color: #fafafa !important;
+    border: 1px solid #094985 !important;
+  }
+
+  [data-preset="base"] #accessibility .card h3,
+  [data-preset="base"] #accessibility .card p,
+  [data-preset="base"] #accessibility .card span,
+  [data-preset=""] #accessibility .card h3,
+  [data-preset=""] #accessibility .card p,
+  [data-preset=""] #accessibility .card span,
+  :not([data-preset]) #accessibility .card h3,
+  :not([data-preset]) #accessibility .card p,
+  :not([data-preset]) #accessibility .card span,
+  html:not([data-preset]) #accessibility .card h3,
+  html:not([data-preset]) #accessibility .card p,
+  html:not([data-preset]) #accessibility .card span {
+    color: #fafafa !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  [data-preset="base"] #accessibility .card svg,
+  [data-preset=""] #accessibility .card svg,
+  :not([data-preset]) #accessibility .card svg,
+  html:not([data-preset]) #accessibility .card svg {
+    color: #fafafa !important;
+    fill: none !important;
+    stroke: #fafafa !important;
+  }
+
+  /* Other profiles: White cards with dark text */
+  [data-preset="dyslexia"] #accessibility .card,
+  [data-preset="autism"] #accessibility .card,
+  [data-preset="adhd"] #accessibility .card,
+  [data-preset="visual"] #accessibility .card {
+    background-color: #ffffff !important;
+    color: #1c1c1c !important;
+    border: 1px solid #d7dee8 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  [data-preset="dyslexia"] #accessibility .card h3,
+  [data-preset="dyslexia"] #accessibility .card p,
+  [data-preset="dyslexia"] #accessibility .card span,
+  [data-preset="autism"] #accessibility .card h3,
+  [data-preset="autism"] #accessibility .card p,
+  [data-preset="autism"] #accessibility .card span,
+  [data-preset="adhd"] #accessibility .card h3,
+  [data-preset="adhd"] #accessibility .card p,
+  [data-preset="adhd"] #accessibility .card span,
+  [data-preset="visual"] #accessibility .card h3,
+  [data-preset="visual"] #accessibility .card p,
+  [data-preset="visual"] #accessibility .card span {
+    color: #1c1c1c !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+  }
+
+  [data-preset="dyslexia"] #accessibility .card svg,
+  [data-preset="autism"] #accessibility .card svg,
+  [data-preset="adhd"] #accessibility .card svg,
+  [data-preset="visual"] #accessibility .card svg {
+    color: #094985 !important;
+    fill: none !important;
+    stroke: #094985 !important;
+  }
+
+  /* Ensure grid layout consistency */
+  #accessibility .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  @media (max-width: 768px) {
+    #accessibility .grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Equal height cards */
+  #accessibility .card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+  }
+
+  #accessibility .card-header {
+    flex-shrink: 0 !important;
+  }
+
+  #accessibility .card-content {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Decentralization section grid layout for strict 2x2 desktop, 1x4 mobile */
+  #decentralization-section .cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+
+  @media (max-width: 767px) {
+    #decentralization-section .cards-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Equal height cards for decentralization section */
+  #decentralization-section .card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    min-height: 220px !important;
+    background: #ffffff !important;
+    color: #1c1c1c !important;
+    border: 1px solid #d7dee8 !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  #decentralization-section .card .icon {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 auto !important;
+  }
+
+  #decentralization-section .card .card-footer {
+    margin-top: auto !important;
+  }
+
+  /* Keyboard focus for decentralization cards */
+  #decentralization-section .card:focus {
+    outline: 3px solid #094985 !important;
+    outline-offset: 2px !important;
+  }
+}
